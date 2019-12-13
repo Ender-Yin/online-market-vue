@@ -44,5 +44,11 @@ export default new Router({
       component: Edit,
       props: true
     },
+    {
+      path: '/leavemessage',
+      name: 'LeaveMessage',
+      component: LeaveMessage,
+      props: true
+    }
   ]
 })
