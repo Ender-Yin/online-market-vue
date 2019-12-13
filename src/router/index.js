@@ -38,5 +38,11 @@ export default new Router({
       component: Buy,
       props: true
     },
+    {
+      path: '/edit',
+      name: 'Edit',
+      component: Edit,
+      props: true
+    },
   ]
 })
