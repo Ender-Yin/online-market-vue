@@ -32,5 +32,11 @@ export default new Router({
       name: 'Put',
       component: Put
     },
+    {
+      path: '/buy',
+      name: 'Buy',
+      component: Buy,
+      props: true
+    },
   ]
 })
