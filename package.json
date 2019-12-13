@@ -12,11 +12,17 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "ajv": "^6.10.2",
     "axios": "^0.19.0",
+    "babel-polyfill": "^6.26.0",
     "bootstrap-vue": "^2.1.0",
+    "jquery": "^3.4.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "vue-tables-2": "^1.6.16"
+    "vue-sweetalert": "^0.1.18",
+    "vue-tables-2": "^1.6.16",
+    "vueform": "^2.0.0",
+    "vuelidate": "^0.7.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

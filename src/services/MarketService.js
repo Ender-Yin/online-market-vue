@@ -3,5 +3,36 @@ import Api from '@/services/api'
 export default {
   fetchThings () {
     return Api().get('/things')
+  },
+  fetchAThing (id) {
+    return Api().get(`/things/${id}`)
+  },
+  fetchInvoices () {
+    return Api().get('/invoices')
+  },
+  fetchAInvoice (id) {
+    return Api().get(`/invoices/${id}`)
+  },
+  postAThing (thing) {
+    return Api().post('/things', thing,
+      { headers: {'Content-type': 'application/json'} })
+  },
+  editAThing (id, thing) {
+    console.log('REQUESTING ' + thing._id + ' ' +
+      JSON.stringify(thing, null, 5))
+    return Api().put(`/things/${id}`, thing,
+      { headers: {'Content-type': 'application/json'} })
+  },
+  deleteAThing (id) {
+    return Api().delete(`/things/${id}`)
+  },
+  buyAThing (namebuyer){
+    return Api().post('/invoices', namebuyer,
+      { headers: {'Content-type': 'application/json'} })
+  },
+  leaveMessage (id, message) {
+    return Api().put(`/invoices/${id}` , message,
+      { headers: {'Content-type': 'application/json'} })
   }
+
 }

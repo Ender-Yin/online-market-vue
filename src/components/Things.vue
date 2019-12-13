@@ -3,7 +3,9 @@
     <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{messagetitle}}</h3>
     <div id="app1">
       <v-client-table :columns="columns" :data="things" :options="options">
-
+        <a slot="buy" slot-scope="props" class="fa fa-download fa-2x" @click="buyAThing(props.row._id)"></a>
+        <a slot="edit" slot-scope="props" class="fa fa-edit fa-2x" @click="editAThing(props.row._id)"></a>
+        <a slot="delete" slot-scope="props" class="fa fa-trash-o fa-2x" @click="deleteAThing(props.row._id)"></a>
       </v-client-table>
     </div>
   </div>
@@ -22,9 +24,12 @@
             return {
                 messagetitle: ' Things List ',
                 things: [],
+                props: ['_id'],
                 errors: [],
-                columns: ['_id', 'name', 'seller', 'price'],
+                columns: ['_id', 'name', 'seller', 'price', 'buy', 'edit', 'delete'],
                 options: {
+                    sortable : ['price'],
+                    filterable: ['name', 'seller', 'price'],
                     headings:{
                         _id: 'ID',
                         name : 'Name',
@@ -50,6 +55,25 @@
                         this.errors.push(error)
                         console.log(error)
                     })
+            },
+            buyAThing: function (id) {
+                this.$router.params = id
+                this.$router.push('buy')
+            },
+            editAThing: function (id) {
+                this.$router.params = id
+                this.$router.push('edit')
+            },
+            deleteAThing: function (id) {
+                MarketService.deleteAThing(id)
+                    .then(response => {
+                        this.loadThings()
+                    })
+                    .catch(error => {
+                        this.errors.push(error)
+                        console.log(error)
+                    })
+
             }
         }
     }

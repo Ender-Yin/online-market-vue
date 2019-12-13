@@ -6,10 +6,10 @@
       <b-navbar-brand to="/">Online Market</b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
-          <b-nav-item to="/#"><i style="padding: 5px"> Home</i></b-nav-item>
+          <b-nav-item to="/#"><i class="fa fa-home" style="padding: 5px"> Home</i></b-nav-item>
           <b-nav-item to="/things"><img src="./assets/things.png" class="img-circle" style="padding: 5px">
             <i style="padding: 5px">Things</i></b-nav-item>
-          <b-nav-item to="/put"><i style="padding: 5px">Put your Thing</i></b-nav-item>
+          <b-nav-item to="/put"><i class="fa fa-upload" style="padding: 5px">Put your Thing</i></b-nav-item>
           <b-nav-item to="/invoices"><i style="padding: 5px"> Invoices</i></b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
