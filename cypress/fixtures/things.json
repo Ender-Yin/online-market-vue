@@ -1,0 +1,20 @@
+[
+  {
+    "name": "iphone8", "seller": "tom", "price": 1000
+  },
+  {
+    "name": "macbookair", "seller": "jobs", "price": 3000
+  },
+  {
+    "name": "huaweiphone", "seller": "jack", "price": 50000
+  },
+  {
+    "name": "samsungs7", "seller": "jerry", "price": 2000
+  },
+  {
+    "name": "iwatch", "seller": "jobs", "price": 1
+  },
+  {
+    "name": "iphone100", "seller": "jobs", "price": 10000
+  }
+]

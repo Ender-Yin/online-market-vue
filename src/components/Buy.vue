@@ -40,7 +40,7 @@
                 childDataLoaded: false,
                 temp: {},
                 buyer : '',
-                namebuyer : '',
+                idbuyer : '',
                 messagetitle: ' Buy it !! '
             }
         },
@@ -66,8 +66,8 @@
             },
             BuyAThing: function (thing) {
                 console.log('Before PUT ' + JSON.stringify(thing, null, 5))
-                this.namebuyer = {name : this.thing.name, buyer : this.buyer}
-                MarketService.buyAThing(this.namebuyer)
+                this.idbuyer = { _id : this.thing._id, buyer : this.buyer}
+                MarketService.buyAThing(this.idbuyer)
                     .then(response => {
                         console.log(response)
                         console.log('AFTER PUT ' + JSON.stringify(thing, null, 5))
