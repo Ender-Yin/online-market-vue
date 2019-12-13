@@ -27,5 +27,10 @@ export default new Router({
       name: 'Invoices',
       component: Invoices
     },
+    {
+      path: '/put',
+      name: 'Put',
+      component: Put
+    },
   ]
 })
