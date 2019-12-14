@@ -13,7 +13,7 @@
           <b-nav-item to="/things"><img src="./assets/things.png" class="img-circle" style="padding: 5px">
             <i style="padding: 5px">Things</i></b-nav-item>
           <b-nav-item data-test="thingbtn" to="/put"><i class="fa fa-upload" style="padding: 5px">Put your Thing</i></b-nav-item>
-          <b-nav-item to="/invoices"><i style="padding: 5px">Invoices</i></b-nav-item>
+          <b-nav-item to="/invoices"><i class="fa fa-list" style="padding: 5px">            Invoices</i></b-nav-item>
         </b-navbar-nav>
 
         <b-navbar-nav class="ml-auto">

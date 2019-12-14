@@ -19,7 +19,7 @@
 
           <div class="form-group">
             <label class="form-label">Your Name (buyer name)</label>
-            <input class="form-control" type="text" v-model="buyer" id="buyer" name="buyer" placeholder="enter your name here" />
+            <input data-test="buyer" class="form-control" type="text" v-model="buyer" id="buyer" name="buyer" placeholder="enter your name here" />
           </div>
 
           <button class="btn" TYPE="submit" @click="BuyAThing"> Purchase </button>

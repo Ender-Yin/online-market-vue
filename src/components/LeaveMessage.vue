@@ -22,10 +22,10 @@
 
           <div class="form-group">
             <label class="form-label">Your Message</label>
-            <input class="form-control" type="text" v-model="message" id="message" name="message" placeholder="enter your message here" />
+            <input data-test="message" class="form-control" type="text" v-model="message" id="message" name="message" placeholder="enter your message here" />
           </div>
 
-          <button class="btn" TYPE="submit" @click="LeaveMessage"> Add </button>
+          <button class="btn" type="submit" @click="LeaveMessage"> Add </button>
 
         </div><!-- /col -->
       </div><!-- /row -->

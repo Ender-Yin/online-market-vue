@@ -3,19 +3,20 @@
 
     <div class="form-group">
       <label class="form-label">Product Name</label>
-      <input class="form-control" type="text" v-model="name" id="name" name="name" placeholder="enter your thing's name here" />
+      <input data-test="name" class="form-control" type="text" v-model="name" id="name" name="name" placeholder="enter your thing's name here" />
     </div>
+    <div class="error" v-if="!$v.name.required">Product name must be Required</div>
 
     <div class="form-group" :class="{ 'form-group--error': $v.price.$error }">
       <label class="form-control-label" name="price">Price (Your thing's price)</label>
-      <input class="form__input" type="decimal" v-model.trim="price"/>
+      <input data-test="price" class="form__input" type="decimal" v-model.trim="price"/>
     </div>
-    <div class="error" v-if="!$v.price.minValue">Pirce must be above 0</div>
-    <div class="error" v-if="!$v.price.required">Pirce can't be empty</div>
+    <div class="error" v-if="!$v.price.minValue">Price must be above 0</div>
+    <div class="error" v-if="!$v.price.required">Price can't be empty</div>
 
     <div class="form-group" :class="{ 'form-group--error': $v.seller.$error }">
       <label class="form__label">Your user name</label>
-      <input class="form__input" placeholder="enter your name here" v-model.trim="$v.seller.$model"/>
+      <input data-test="seller" class="form__input" placeholder="enter your name here" v-model.trim="$v.seller.$model"/>
     </div>
     <div class="error" v-if="!$v.seller.required">Your name is Required</div>
 
@@ -60,6 +61,9 @@
             }
         },
         validations: {
+            name:{
+              required
+            },
             seller: {
                 required
             },

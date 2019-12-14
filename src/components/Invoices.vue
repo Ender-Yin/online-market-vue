@@ -4,6 +4,7 @@
     <div id="app1">
       <v-client-table :columns="columns" :data="invoices" :options="options">
         <a slot="addmessage" slot-scope="props" class="fa fa-comment fa-2x" @click="leaveMessage(props.row._id)"></a>
+        <a slot="delete" slot-scope="props" class="fa fa-trash-o fa-2x" @click="deleteAInvoice(props.row._id)"></a>
       </v-client-table>
     </div>
   </div>
@@ -24,7 +25,7 @@ Vue.use(VueTables.ClientTable, {compileTemplates: true, filterByColumn: true})
                 invoices: [],
                 errors: [],
                 props: ['_id'],
-                columns: ['_id', 'name', 'seller', 'buyer', 'message','addmessage'],
+                columns: ['_id', 'name', 'seller', 'buyer', 'message','addmessage','delete'],
                 options: {
                     filterable: ['name', 'seller', 'buyer'],
                     headings:{
@@ -54,6 +55,17 @@ Vue.use(VueTables.ClientTable, {compileTemplates: true, filterByColumn: true})
             leaveMessage : function (id) {
                 this.$router.params = id
                 this.$router.push('leavemessage')
+            },
+            deleteAInvoice: function (id) {
+                MarketService.deleteAInvoice(id)
+                    .then(response => {
+                        this.loadInvoices()
+                    })
+                    .catch(error => {
+                        this.errors.push(error)
+                        console.log(error)
+                    })
+
             }
         }
     }

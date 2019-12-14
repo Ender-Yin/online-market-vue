@@ -26,6 +26,9 @@ export default {
   deleteAThing (id) {
     return Api().delete(`/things/${id}`)
   },
+  deleteAInvoice (id){
+    return Api().delete(`/invoices/${id}`)
+  },
   buyAThing (idbuyer){
     return Api().post('/invoices', idbuyer,
       { headers: {'Content-type': 'application/json'} })

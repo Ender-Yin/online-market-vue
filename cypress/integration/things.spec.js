@@ -1,8 +1,8 @@
-const apiURL = "http://localhost:3000/things";
+const apiURL = "http://localhost:3000/things/";
 
 describe("Manage Things page", () => {
   beforeEach(() => {
-    // Delete all donations in the API's datastore
+    // Delete all things in the API's datastore
     cy.request(apiURL)
       .its("body")
       .then(things => {
@@ -26,6 +26,40 @@ describe("Manage Things page", () => {
       .eq(1)
       .click();
   });
+
+  describe("edit the first thing", ()=>{
+    it("should change the price as we edit and direct to edit page", ()=> {
+      cy.get("tbody")
+        .find("tr")
+        .eq(0)
+        .find("td")
+        .eq(5)
+        .find("a")
+        .click();
+
+      cy.url().should("include", "/edit")
+
+      cy.get("input[data-test=price]").clear()
+      cy.get("input[data-test=price]").type(10000)
+
+      cy.get(".error").should("not.exist");
+      cy.get("button[type=submit]").click();
+      cy.contains("Successfully !!!").should("exist");
+    });
+    after(() => {
+      cy.get("a")
+        .contains("See more product here")
+        .click();
+      cy.get("tbody")
+        .find("tr")
+        .eq(0)
+        .find("td")
+        .eq(3)
+        .contains(10000).should("exist")
+
+    });
+  })
+
   describe("For a confirmed delete operation", () => {
     it("reduces the no. of things by 1", () => {
       cy.get("tbody")
@@ -48,26 +82,5 @@ describe("Manage Things page", () => {
         .should("have.length", 3);
     });
   });
-  /*describe("For a cancelled delete operation", () => {
-    it("leaves the list unchanged", () => {
-      cy.get("tbody")
-        .find("tr")
-        .should("have.length", 4);
-      // Click trash/delete link of 3rd donation in list
-      cy.get("tbody")
-        .find("tr")
-        .eq(2)
-        .find("td")
-        .eq(6)
-        .find("a")
-        .click();
-      // Click cancel button
-      cy.get("button")
-        .contains("Cancel")
-        .click();
-      cy.get("tbody")
-        .find("tr")
-        .should("have.length", 4);
-    });
-  });*/
+
 });
