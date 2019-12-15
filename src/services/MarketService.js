@@ -10,6 +10,9 @@ export default {
   fetchAThingByUsername (username){
     return Api().get(`/things/users/${username}`)
   },
+  fetchAInvoiceByUsername( username) {
+    return Api().get(`/invoices/users/${username}`)
+  },
   fetchInvoices () {
     return Api().get('/invoices')
   },

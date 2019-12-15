@@ -26,6 +26,9 @@
           </div>
 
           <button class="btn" type="submit" @click="LeaveMessage"> Add </button>
+          <button class="btn" TYPE="submit" @click="goinvoice"> view my invoices </button>
+          <p class="typo__p">{{newmessage}}</p>
+
 
         </div><!-- /col -->
       </div><!-- /row -->
@@ -44,7 +47,8 @@
                 temp: {},
                 message : '',
                 jsonmessage : '',
-                messagetitle: ' leave a message '
+                messagetitle: ' leave a message ',
+                newmessage : ''
             }
         },
         components: {
@@ -54,6 +58,10 @@
             this.getInvoice()
         },
         methods: {
+            goinvoice : function() {
+                this.$router.params = this.invoices.buyer
+                this.$router.push('myinvoices')
+            },
             getInvoice: function () {
                 MarketService.fetchAInvoice(this.$router.params)
                     .then(response => {
@@ -74,6 +82,7 @@
                     .then(response => {
                         console.log(response)
                         console.log('AFTER PUT ' + JSON.stringify(this.invoices, null, 5))
+                        this.newmessage = response.data
                     })
                     .catch(error => {
                         this.errors.push(error)

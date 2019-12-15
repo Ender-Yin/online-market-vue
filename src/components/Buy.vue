@@ -23,6 +23,7 @@
           </div>
 
           <button class="btn" TYPE="submit" @click="BuyAThing"> Purchase </button>
+          <p class="typo__p">{{newmessage}}</p>
 
         </div><!-- /col -->
       </div><!-- /row -->
@@ -42,7 +43,8 @@
                 temp: {},
                 buyer : '',
                 idbuyer : '',
-                messagetitle: ' Buy it !! '
+                messagetitle: ' Buy it !! ',
+                newmessage: ''
             }
         },
         components: {
@@ -72,6 +74,7 @@
                     .then(response => {
                         console.log(response)
                         console.log('AFTER PUT ' + JSON.stringify(thing, null, 5))
+                        this.newmessage = response.data
                     })
                     .catch(error => {
                         this.errors.push(error)

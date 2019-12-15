@@ -7,6 +7,10 @@
           <template v-if="childDataLoaded">
             <thing-form :thing="thing" ThingBtnTitle="Update thing"
                            @thing-is-created-updated="updateThing"></thing-form>
+
+            <p>
+              <button class="btn btn-primary btn1" TYPE="submit" @click="gothing"> view my things </button>
+            </p>
           </template>
         </div><!-- /col -->
       </div><!-- /row -->
@@ -33,6 +37,17 @@
             this.getThing()
         },
         methods: {
+            gothing : function() {
+                this.$router.params = this.thing.seller
+                this.$router.push('mythings')
+                /*this.$router.push({
+                    path: '/mythings',
+                    query:{
+                        accessusername: this.accessusername
+                    }
+                })
+                this.$router.push('mythings')*/
+            },
             getThing: function () {
                 MarketService.fetchAThing(this.$router.params)
                     .then(response => {

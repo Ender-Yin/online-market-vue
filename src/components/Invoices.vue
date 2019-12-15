@@ -3,8 +3,7 @@
     <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{messagetitle}}</h3>
     <div id="app1">
       <v-client-table :columns="columns" :data="invoices" :options="options">
-        <a slot="addmessage" slot-scope="props" class="fa fa-comment fa-2x" @click="leaveMessage(props.row._id)"></a>
-        <a slot="delete" slot-scope="props" class="fa fa-trash-o fa-2x" @click="deleteAInvoice(props.row._id)"></a>
+
       </v-client-table>
     </div>
   </div>
@@ -25,7 +24,7 @@ Vue.use(VueTables.ClientTable, {compileTemplates: true, filterByColumn: true})
                 invoices: [],
                 errors: [],
                 props: ['_id'],
-                columns: ['_id', 'name', 'seller', 'buyer', 'message','addmessage','delete'],
+                columns: ['_id', 'name', 'seller', 'buyer', 'message'],
                 options: {
                     filterable: ['name', 'seller', 'buyer'],
                     headings:{
