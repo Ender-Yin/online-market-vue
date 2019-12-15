@@ -1,4 +1,4 @@
-const apiURL = "http://localhost:3000/things/";
+const apiURL = "https://online-market-api-staging.herokuapp.com/things/";
 
 describe("buy a thing page", () =>{
   beforeEach( ()=>{
@@ -31,16 +31,20 @@ describe("buy a thing page", () =>{
     it("watch invoices list number increase 1", () =>{
       cy.get("tbody")
         .find("tr")
-        .eq(3)
+        .should("have.length", 4);
+
+      cy.get("tbody")
+        .find("tr")
+        .eq(0)
         .find("td")
         .eq(4)
         .find("a")
         .click();
 
       cy.get("table")
-        .contains("samsungs7").should("exist")
+        .contains("iphone8").should("exist")
 
-      cy.get("input[data-test=buyer]").type("ender");
+      cy.get("input[data-test=buyer]").type("Jack");
 
       cy.get("button[type=submit]").click();
 
@@ -51,9 +55,10 @@ describe("buy a thing page", () =>{
         .eq(3)
         .click();
 
+
       cy.get("tbody")
         .find("tr")
-        .should("have.length", 3);
+        .should("have.length", 2);
     })
   })
 

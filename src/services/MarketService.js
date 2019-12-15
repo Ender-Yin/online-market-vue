@@ -36,6 +36,9 @@ export default {
   leaveMessage (id, message) {
     return Api().put(`/invoices/${id}` , message,
       { headers: {'Content-type': 'application/json'} })
+  },
+  logindetect (account) {
+    return Api().post("/users", account)
   }
 
 }

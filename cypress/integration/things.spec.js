@@ -1,4 +1,4 @@
-const apiURL = "http://localhost:3000/things/";
+const apiURL = "https://online-market-api-staging.herokuapp.com/things/";
 
 describe("Manage Things page", () => {
   beforeEach(() => {
@@ -27,8 +27,36 @@ describe("Manage Things page", () => {
       .click();
   });
 
+  describe("For a confirmed delete operation", () => {
+    it("reduces the no. of things by 1", () => {
+      cy.get("tbody")
+        .find("tr")
+        .should("have.length", 4);
+
+      // Click trash/delete link of 3rd donation in list
+      cy.get("tbody")
+        .find("tr")
+        .eq(2)
+        .find("td")
+        .eq(6)
+        .find("a")
+        .click();
+      // Click confirmation button
+      /*cy.get("button")
+        .contains("Delete")
+        .click();*/
+      cy.get("tbody")
+        .find("tr")
+        .should("have.length", 3);
+    });
+  });
+
   describe("edit the first thing", ()=>{
     it("should change the price as we edit and direct to edit page", ()=> {
+      cy.get("tbody")
+        .find("tr")
+        .should("have.length", 4);
+
       cy.get("tbody")
         .find("tr")
         .eq(0)
@@ -50,6 +78,11 @@ describe("Manage Things page", () => {
       cy.get("a")
         .contains("See more product here")
         .click();
+
+      cy.get("tbody")
+        .find("tr")
+        .should("have.length", 4);
+
       cy.get("tbody")
         .find("tr")
         .eq(0)
@@ -60,27 +93,6 @@ describe("Manage Things page", () => {
     });
   })
 
-  describe("For a confirmed delete operation", () => {
-    it("reduces the no. of things by 1", () => {
-      cy.get("tbody")
-        .find("tr")
-        .should("have.length", 4);
-      // Click trash/delete link of 3rd donation in list
-      cy.get("tbody")
-        .find("tr")
-        .eq(2)
-        .find("td")
-        .eq(6)
-        .find("a")
-        .click();
-      // Click confirmation button
-      /*cy.get("button")
-        .contains("Delete")
-        .click();*/
-      cy.get("tbody")
-        .find("tr")
-        .should("have.length", 3);
-    });
-  });
+
 
 });

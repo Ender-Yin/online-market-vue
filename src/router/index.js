@@ -7,6 +7,7 @@ import Put from "../components/Put";
 import Buy from "@/components/Buy";
 import Edit from "@/components/Edit";
 import LeaveMessage from "@/components/LeaveMessage";
+import login from "@/components/login";
 
 Vue.use(Router)
 
