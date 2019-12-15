@@ -33,6 +33,7 @@
 <script>
     import MarketService from "../services/MarketService";
     import PutForm from "./PutForm";
+
     export default {
         data () {
             return {

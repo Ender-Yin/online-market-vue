@@ -4,8 +4,7 @@
     <div id="app1">
       <v-client-table :columns="columns" :data="things" :options="options">
         <a slot="buy" slot-scope="props" class="fa fa-download fa-2x" @click="buyAThing(props.row._id)"></a>
-        <a slot="edit" slot-scope="props" class="fa fa-edit fa-2x" @click="editAThing(props.row._id)"></a>
-        <a slot="delete" slot-scope="props" class="fa fa-trash-o fa-2x" @click="deleteAThing(props.row._id)"></a>
+
       </v-client-table>
     </div>
   </div>
@@ -26,7 +25,7 @@
                 things: [],
                 props: ['_id'],
                 errors: [],
-                columns: ['_id', 'name', 'seller', 'price', 'buy', 'edit', 'delete'],
+                columns: ['_id', 'name', 'seller', 'price', 'buy'],
                 options: {
                     sortable : ['price'],
                     filterable: ['name', 'seller', 'price'],

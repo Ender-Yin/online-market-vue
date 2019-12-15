@@ -7,6 +7,9 @@ export default {
   fetchAThing (id) {
     return Api().get(`/things/${id}`)
   },
+  fetchAThingByUsername (username){
+    return Api().get(`/things/users/${username}`)
+  },
   fetchInvoices () {
     return Api().get('/invoices')
   },
@@ -38,7 +41,7 @@ export default {
       { headers: {'Content-type': 'application/json'} })
   },
   logindetect (account) {
-    return Api().post("/users", account)
+    return Api().post("/users/login", account)
   }
 
 }

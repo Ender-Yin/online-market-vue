@@ -8,6 +8,8 @@ import Buy from "@/components/Buy";
 import Edit from "@/components/Edit";
 import LeaveMessage from "@/components/LeaveMessage";
 import login from "@/components/login";
+import mythings from "@/components/mythings";
+import myinvoices from "@/components/myinvoices";
 
 Vue.use(Router)
 
@@ -50,6 +52,10 @@ export default new Router({
       name: 'LeaveMessage',
       component: LeaveMessage,
       props: true
-    }
+    },
+    { path: '/login', name: 'login', component:login},
+    { path: '/mythings', name: 'mythings', component:mythings, props: true},
+    { path: '/myinvoices', name: 'myinvoices', component:myinvoices, props: true}
+
   ]
 })
