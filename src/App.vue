@@ -20,7 +20,7 @@
           <b-nav-item to="/mythings"><i class="fa fa-list" style="padding: 5px">my things</i></b-nav-item>
           <b-nav-item to="/myinvoices"><i class="fa fa-list" style="padding: 5px">my invoices</i></b-nav-item>
           <b-nav-item to="/login"><i class="fa fa-sign-in" style="padding: 5px"> Login </i></b-nav-item>
-          <b-nav-item><i class="fa fa-register" style="padding: 5px"> register </i></b-nav-item>
+          <b-nav-item to="/register"><i class="fa fa-register" style="padding: 5px"> register </i></b-nav-item>
           <i class="fa fa-pied-piper-alt fa-1x" style="padding: 5px; color: white;"></i>
         </b-navbar-nav>
 

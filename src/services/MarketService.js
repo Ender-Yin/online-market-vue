@@ -42,6 +42,9 @@ export default {
   },
   logindetect (account) {
     return Api().post("/users/login", account)
+  },
+  register(account) {
+    return Api().post("/users/register", account)
   }
 
 }

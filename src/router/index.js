@@ -10,6 +10,7 @@ import LeaveMessage from "@/components/LeaveMessage";
 import login from "@/components/login";
 import mythings from "@/components/mythings";
 import myinvoices from "@/components/myinvoices";
+import register from "@/components/register";
 
 Vue.use(Router)
 
@@ -53,7 +54,8 @@ export default new Router({
       component: LeaveMessage,
       props: true
     },
-    { path: '/login', name: 'login', component:login},
+    { path: '/login', name: 'login', component:login,props: true},
+    { path: '/register', name: 'register', component:register,props: true},
     { path: '/mythings', name: 'mythings', component:mythings, props: true},
     { path: '/myinvoices', name: 'myinvoices', component:myinvoices, props: true}
 
