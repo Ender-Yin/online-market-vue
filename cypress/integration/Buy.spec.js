@@ -1,4 +1,5 @@
-const apiURL = "https://online-market-api-staging.herokuapp.com/things/";
+//const apiURL = "https://online-market-api-staging.herokuapp.com/things/";
+const apiURL = "http://localhost:3000/thinges/";
 
 describe("buy a thing page", () =>{
   beforeEach( ()=>{

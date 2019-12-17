@@ -24,6 +24,10 @@
       <button class="btn btn-primary btn1" type="submit" :disabled="submitStatus === 'PENDING'">{{ ThingBtnTitle }}</button>
     </p>
 
+    <p>
+      <a href="#/things" class="btn btn-primary btn1" role="button">See more product here</a>
+    </p>
+
     <p class="typo__p" v-if="submitStatus === 'OK'">Successfully !!!</p>
     <p class="typo__p" v-if="submitStatus === 'ERROR'">Please Fill in the Form Correctly.</p>
     <p class="typo__p" v-if="submitStatus === 'PENDING'">Putting...</p>

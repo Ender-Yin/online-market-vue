@@ -1,7 +1,9 @@
-const apiURL = "https://online-market-api-staging.herokuapp.com/invoices/";
+//const apiURL = "https://online-market-api-staging.herokuapp.com/invoices/";
+const apiURL = "http://localhost:3000/invoices/";
 
 describe("Manage Invoices page", () => {
   beforeEach( ()=>{
+    // visit
     cy.visit("/")
     cy.get(".navbar-nav")
       .eq(0)
@@ -32,6 +34,8 @@ describe("Manage Invoices page", () => {
       cy.get("input[data-test=message]").type("good quality");
 
       cy.get("button[type=submit]").click();
+
+      //after
       //load page
       cy.get(".navbar-nav")
         .eq(0)
