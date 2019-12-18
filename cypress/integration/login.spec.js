@@ -18,7 +18,7 @@ describe("test login page", () => {
         cy.request("POST", "http://localhost:3000/users/register", user);
       });
     });
-    // visit
+    // visit login page
     cy.visit("/")
     cy.get(".navbar-nav")
       .eq(1)
@@ -38,45 +38,45 @@ describe("test login page", () => {
 
       cy.get("button").contains("LOG IN").click()
 
-      after( () => {
+
         cy.get("p").should("contain", "user doesn't exist")
-      })
+
     })
   })
 
   describe("input correct username but incorrect password", () =>{
     it("should show password incorrect", () =>{
-      cy.get("#username").type("yyc")
+      cy.get("#username").type("ender")
       cy.get("#pwd").type("321")
 
       cy.get("button").contains("LOG IN").click()
       // do it again
-      cy.get("#username").type("yyc")
+      cy.get("#username").type("ender")
       cy.get("#pwd").type("321")
 
       cy.get("button").contains("LOG IN").click()
 
-      after( () => {
+
         cy.get("p").should("contain", "password incorrect")
-      })
+
     })
   })
 
   describe("input correct username and correct password", () =>{
     it("should show welcome", () =>{
-      cy.get("#username").type("yyc")
+      cy.get("#username").type("ender")
       cy.get("#pwd").type("123")
 
       cy.get("button").contains("LOG IN").click()
       // do it again
-      cy.get("#username").type("yyc")
+      cy.get("#username").type("ender")
       cy.get("#pwd").type("123")
 
       cy.get("button").contains("LOG IN").click()
 
-      after( () => {
+
         cy.get("p").should("contain", "welcome")
-      })
+
     })
   })
 })
