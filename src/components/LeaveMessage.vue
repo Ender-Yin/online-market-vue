@@ -26,7 +26,7 @@
           </div>
 
           <button class="btn" type="submit" @click="LeaveMessage"> Add </button>
-          <button class="btn" TYPE="submit" @click="goinvoice"> view my invoices </button>
+          <button class="btn" @click="goinvoice"> view my invoices </button>
           <p class="typo__p">{{newmessage}}</p>
 
 

@@ -25,16 +25,22 @@ describe("Home page", () => {
             .eq(3)
             .should("contain", "Invoices");
         });
-      /*cy.get(".navbar-nav")
+      cy.get(".navbar-nav")
         .eq(1)
         .within(() => {
           cy.get(".nav-item")
             .eq(0)
-            .should("contain", "About");
+            .should("contain", "my things");
           cy.get(".nav-item")
             .eq(1)
-            .should("contain", "Contact");
-        });*/
+            .should("contain", "my invoices");
+          cy.get(".nav-item")
+            .eq(2)
+            .should("contain", "Login");
+          cy.get(".nav-item")
+            .eq(3)
+            .should("contain", "register");
+        });
     });
 
     it("Redirects when links are clicked", () => {

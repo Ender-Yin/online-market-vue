@@ -1,9 +1,9 @@
 [
   {
-    "name": "iphone8", "seller": "tom", "price": 1000
+    "name": "iphone8", "seller": "jobs", "price": 1000
   },
   {
-    "name": "macbookair", "seller": "jobs", "price": 3000
+    "name": "macbookair", "seller": "ender", "price": 666
   },
   {
     "name": "huaweiphone", "seller": "jack", "price": 50000

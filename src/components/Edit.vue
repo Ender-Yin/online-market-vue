@@ -9,7 +9,7 @@
                            @thing-is-created-updated="updateThing"></thing-form>
 
             <p>
-              <button class="btn btn-primary btn1" TYPE="submit" @click="gothing"> view my things </button>
+              <button class="btn btn-primary btn1" @click="gothing"> view my things </button>
             </p>
           </template>
         </div><!-- /col -->

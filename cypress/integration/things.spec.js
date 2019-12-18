@@ -28,72 +28,11 @@ describe("Manage Things page", () => {
       .click();
   });
 
-  describe("For a confirmed delete operation", () => {
-    it("reduces the no. of things by 1", () => {
+  describe("Manage the thing", () => {
+    it("should four things in the list", () => {
       cy.get("tbody")
         .find("tr")
         .should("have.length", 4);
-
-      // Click trash/delete link of 3rd donation in list
-      cy.get("tbody")
-        .find("tr")
-        .eq(2)
-        .find("td")
-        .eq(6)
-        .find("a")
-        .click();
-      // Click confirmation button
-      /*cy.get("button")
-        .contains("Delete")
-        .click();*/
-      cy.get("tbody")
-        .find("tr")
-        .should("have.length", 3);
     });
   });
-
-  describe("edit the first thing", ()=>{
-    it("should change the price as we edit and direct to edit page", ()=> {
-      cy.get("tbody")
-        .find("tr")
-        .should("have.length", 4);
-
-      cy.get("tbody")
-        .find("tr")
-        .eq(0)
-        .find("td")
-        .eq(5)
-        .find("a")
-        .click();
-
-      cy.url().should("include", "/edit")
-
-      cy.get("input[data-test=price]").clear()
-      cy.get("input[data-test=price]").type(10000)
-
-      cy.get(".error").should("not.exist");
-      cy.get("button[type=submit]").click();
-      cy.contains("Successfully !!!").should("exist");
-    });
-    after(() => {
-      cy.get("a")
-        .contains("See more product here")
-        .click();
-
-      cy.get("tbody")
-        .find("tr")
-        .should("have.length", 4);
-
-      cy.get("tbody")
-        .find("tr")
-        .eq(0)
-        .find("td")
-        .eq(3)
-        .contains(10000).should("exist")
-
-    });
-  })
-
-
-
 });
